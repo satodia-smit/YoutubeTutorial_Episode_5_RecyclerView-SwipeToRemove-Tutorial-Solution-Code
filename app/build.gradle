@@ -1,0 +1,119 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.hyperelement.mvvmdemo"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "0.0.1"
+        multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // BASIC FOR MVVM SUPPORT
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.2.0"
+
+    // CO ROUTINES ASYNC
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7"
+
+    // ROOM DATABASE
+    implementation "androidx.room:room-runtime:2.2.5"
+    implementation "androidx.room:room-ktx:2.2.5"
+    kapt "androidx.room:room-compiler:2.2.5"
+
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+
+    // TIMBER LOGGER
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    // DEPENDENCY INJECTION
+    implementation "org.koin:koin-core:2.0.0-GA6"
+    implementation "org.koin:koin-android:2.0.0-GA6"
+    implementation "org.koin:koin-android-scope:2.0.0-GA6"
+    implementation "org.koin:koin-android-viewmodel:2.0.0-GA6"
+
+    // WEB SERVICE CONTROLLER
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.7.2"
+
+    // LOTTIE ANIMATION
+    implementation 'com.airbnb.android:lottie:3.0.6'
+
+    //SCALABLE PIXEL
+    implementation 'com.github.adhishlal:asdp:1.1'
+
+    //RECYCLER ADAPTER
+    implementation 'io.github.manneohlund:smart-recycler-adapter:5.0.0-rc01'
+    implementation 'io.github.manneohlund:smart-recycler-adapter-viewevent:1.0.0-beta03'
+
+
+    //AIRBNB EPOXY
+    implementation "com.airbnb.android:epoxy:2.8.0"
+    kapt "com.airbnb.android:epoxy-processor:2.8.0"
+
+    // IMAGE LOADING
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'jp.wasabeef:glide-transformations:4.0.1'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.android.play:core:1.8.2'
+
+    //FIREBASE
+    implementation 'com.google.firebase:firebase-analytics:17.5.0'
+    implementation 'com.google.firebase:firebase-messaging:20.3.0'
+
+
+}

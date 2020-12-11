@@ -1,0 +1,8 @@
+1. Add diffutils
+2. Add/update navigation drawer
+3. Facility to add custom truth and dare
+4. Another category
+5. Sounds for winner/bottle spin
+6. Sound on/off button
+7. Add fonts
+8. Add fragment animations
